@@ -1,7 +1,13 @@
 import '@mantine/core/styles.css';
-import { MantineProvider } from '@mantine/core';
+import { createTheme, MantineProvider, MantineThemeOverride } from '@mantine/core';
 import { Router } from './Router';
-import { theme } from './theme';
+
+const theme: MantineThemeOverride = {
+  colors: {
+    // Define your custom colors here if needed
+  },
+  // white: '#eff3f0',
+};
 
 export default function App() {
   return (
