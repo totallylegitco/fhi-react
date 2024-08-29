@@ -1,9 +1,11 @@
-import { Title, Text, Anchor, Box } from '@mantine/core';
+import { Title, Text, Anchor, Box, Stack } from '@mantine/core';
+import { IconChevronsDown } from '@tabler/icons-react';
 import classes from './Welcome.module.css';
+import { ScrollDownTag } from '../ScrollDownTag/ScrollDownTag';
 
 export function Welcome() {
   return (
-    <Box className={classes.contentBox}>
+    <>
       <Title className={classes.title} ta="center" mt={100}>
         Fight Health Insurance
       </Title>
@@ -13,6 +15,7 @@ export function Welcome() {
         options to fight back against health insurance denials. Almost all health plans are required
         to offer internal and external appeals and while they often make it confusing we can help.
       </Text>
-    </Box>
+      <ScrollDownTag label="How it works" />
+    </>
   );
 }

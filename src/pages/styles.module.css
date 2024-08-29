@@ -1,0 +1,30 @@
+.homePage {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.snapSection {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+.snapSection:first-child {
+  margin-top: -40px;
+  padding-top: 40px;
+}
+
+.snapSection:last-child {
+  margin-bottom: -40px;
+  padding-bottom: 40px;
+}
+
+.contentBox {
+  box-sizing: border-box;
+  border: solid white 40px;
+  background: linear-gradient(45deg, transparent 49%, #fff 49% 51%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, #fff 49% 51%, transparent 51%);
+  background-size: 3em 2em;
+  background-color: #eff3f0;
+}
