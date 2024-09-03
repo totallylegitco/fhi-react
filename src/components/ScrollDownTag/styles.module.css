@@ -1,3 +1,20 @@
 .tagContainer {
   color: $primary-color;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: breathe-animation 2s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes breathe-animation {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.04);
+  }
 }
