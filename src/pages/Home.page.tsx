@@ -1,4 +1,5 @@
-import { Box } from '@mantine/core';
+import { Box, Button, Center } from '@mantine/core';
+import { Link } from 'react-router-dom';
 import { TextBlurb } from '../components/TextBlurb/TextBlurb';
 import classes from './styles.module.css';
 import { ScrollDownTag } from '@/components/ScrollDownTag/ScrollDownTag';
@@ -15,6 +16,17 @@ export function HomePage() {
       <Box className={classes.contentBox}>
         <div className={classes.snapSection}>
           <TextBlurb title={WELCOME_TITLE} text={WELCOME_TEXT} />
+          <Center mt={80}>
+            <Button
+              radius={0}
+              size="xl"
+              className={classes.primaryColor}
+              component={Link}
+              to="/appeal"
+            >
+              Get Started
+            </Button>
+          </Center>
           <ScrollDownTag label="How it works" />
         </div>
         <div className={classes.snapSection}>
