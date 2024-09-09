@@ -1,17 +1,23 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { Box } from '@mantine/core';
 import { HomePage } from './pages/Home.page';
 import { AppealPage } from './pages/appeal/Appeal.page';
 import { Header } from './components/Header/Header';
+import classes from './pages/Layout.module.css';
 
 const Layout = () => (
   <>
     <Header />
 
-    <main style={{ position: 'relative' }}>
-      <Outlet />
-    </main>
+    <div className={classes.homePage}>
+      <Box className={classes.contentBox}>
+        <main style={{ position: 'relative' }}>
+          <Outlet />
+        </main>
 
-    <footer>{/* Add your footer content here */}</footer>
+        <footer>{/* Add your footer content here */}</footer>
+      </Box>
+    </div>
   </>
 );
 

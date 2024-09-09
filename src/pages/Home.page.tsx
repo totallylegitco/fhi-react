@@ -12,48 +12,50 @@ const WELCOME_TEXT = `We'll help you to write an appeal to fight your health ins
 
 export function HomePage() {
   return (
-    <div className={classes.homePage}>
-      <Box className={classes.contentBox}>
-        <div className={classes.snapSection}>
-          <TextBlurb title={WELCOME_TITLE} text={WELCOME_TEXT} />
-          <Center mt={80}>
-            <Button
-              radius={0}
-              size="xl"
-              className={classes.primaryColor}
-              component={Link}
-              to="/appeal"
-            >
-              Get Started
-            </Button>
-          </Center>
-          <ScrollDownTag label="How it works" />
-        </div>
-        <div className={classes.snapSection}>
-          <TextBlurb title="1. Upload your denial" text={WELCOME_TEXT} />
-          <ScrollDownTag label="Next step" />
-        </div>
-        <div className={classes.snapSection}>
-          <TextBlurb title="2. Sit back and relax" text="Let some AI magic do the rest" />
-          <ScrollDownTag label="Next step" />
-        </div>
-        <div className={classes.snapSection}>
-          <TextBlurb title="3. Get your appeal" text="You will be given 3 options" />
-          <Center mt={80}>
-            <Button
-              radius={0}
-              size="xl"
-              className={classes.primaryColor}
-              component={Link}
-              to="/appeal"
-            >
-              Get Started
-            </Button>
-          </Center>
-        </div>
-      </Box>
+    // <div className={classes.homePage}>
+    //   <Box className={classes.contentBox}>
+    <>
+      <div className={classes.snapSection}>
+        <TextBlurb title={WELCOME_TITLE} text={WELCOME_TEXT} />
+        <Center mt={80}>
+          <Button
+            radius={0}
+            size="xl"
+            className={classes.primaryColor}
+            component={Link}
+            to="/appeal"
+          >
+            Get Started
+          </Button>
+        </Center>
+        <ScrollDownTag label="How it works" />
+      </div>
+      <div className={classes.snapSection}>
+        <TextBlurb title="1. Upload your denial" text={WELCOME_TEXT} />
+        <ScrollDownTag label="Next step" />
+      </div>
+      <div className={classes.snapSection}>
+        <TextBlurb title="2. Sit back and relax" text="Let some AI magic do the rest" />
+        <ScrollDownTag label="Next step" />
+      </div>
+      <div className={classes.snapSection}>
+        <TextBlurb title="3. Get your appeal" text="You will be given 3 options" />
+        <Center mt={80}>
+          <Button
+            radius={0}
+            size="xl"
+            className={classes.primaryColor}
+            component={Link}
+            to="/appeal"
+          >
+            Get Started
+          </Button>
+        </Center>
+      </div>
+    </>
+    //   </Box>
 
-      {/* <Welcome /> */}
-    </div>
+    //   {/* <Welcome /> */}
+    // </div>
   );
 }
