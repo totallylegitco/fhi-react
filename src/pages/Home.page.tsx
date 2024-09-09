@@ -39,6 +39,17 @@ export function HomePage() {
         </div>
         <div className={classes.snapSection}>
           <TextBlurb title="3. Get your appeal" text="You will be given 3 options" />
+          <Center mt={80}>
+            <Button
+              radius={0}
+              size="xl"
+              className={classes.primaryColor}
+              component={Link}
+              to="/appeal"
+            >
+              Get Started
+            </Button>
+          </Center>
         </div>
       </Box>
 

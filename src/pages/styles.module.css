@@ -5,6 +5,7 @@
 }
 
 .snapSection {
+  padding-top: 40px;
   height: 100vh;
   width: 100%;
   scroll-snap-align: start;
@@ -13,7 +14,6 @@
 
 .snapSection:first-child {
   margin-top: -40px;
-  padding-top: 40px;
 }
 
 .snapSection:last-child {
