@@ -4,6 +4,7 @@ import { HomePage } from './pages/Home.page';
 import { AppealPage } from './pages/appeal/Appeal.page';
 import { Header } from './components/Header/Header';
 import classes from './pages/Layout.module.css';
+import { AboutUsPage } from './pages/about-us/AboutUs.page';
 
 const Layout = () => (
   <>
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: 'appeal',
         element: <AppealPage />,
+      },
+      {
+        path: 'about-us',
+        element: <AboutUsPage />,
       },
     ],
   },

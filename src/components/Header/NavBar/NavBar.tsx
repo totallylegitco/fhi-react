@@ -9,7 +9,7 @@ interface AnchorItem {
 }
 const navItems: AnchorItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/' },
+  { label: 'About Us', href: '/about-us' },
   { label: 'Delete Data', href: '/' },
   { label: 'Appeal', href: '/appeal' },
 ];
