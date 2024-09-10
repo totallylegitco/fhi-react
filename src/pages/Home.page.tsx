@@ -12,8 +12,6 @@ const WELCOME_TEXT = `We'll help you to write an appeal to fight your health ins
 
 export function HomePage() {
   return (
-    // <div className={classes.homePage}>
-    //   <Box className={classes.contentBox}>
     <>
       <div className={classes.snapSection}>
         <TextBlurb title={WELCOME_TITLE} text={WELCOME_TEXT} />
@@ -53,9 +51,5 @@ export function HomePage() {
         </Center>
       </div>
     </>
-    //   </Box>
-
-    //   {/* <Welcome /> */}
-    // </div>
   );
 }
