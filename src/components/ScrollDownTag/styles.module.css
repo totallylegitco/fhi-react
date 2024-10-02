@@ -1,20 +1,25 @@
 .tagContainer {
   color: $primary-color;
   position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   animation: breathe-animation 2s ease-in-out infinite;
   transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.iconButton {
+  pointer-events: auto;
+  z-index: 1;
 }
 
 @keyframes breathe-animation {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
+  0%, 100% {
+    transform: scale(1);
   }
-
   50% {
-    transform: translate(-50%, -50%) scale(1.15);
+    transform: scale(1.15);
   }
 }
