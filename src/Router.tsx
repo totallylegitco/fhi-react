@@ -6,6 +6,7 @@ import { Header } from './components/Header/Header';
 import classes from './pages/Layout.module.css';
 import { AboutUsPage } from './pages/about-us/AboutUs.page';
 import { DeleteDataPage } from './pages/delete-data/DeleteData.page';
+
 const Layout = () => (
   <>
     <Header />

@@ -32,7 +32,7 @@ interface DeleteDataRequestOptions {
 
 class FHIClient {
   private API_BASE = 'https://fighthealthinsurance.com/ziggy/rest';
-  private CREATE_DENIAL_URL = this.API_BASE + '/denialcreator';
+  private CREATE_DENIAL_URL = `${this.API_BASE}/denialcreator`;
 
   async createDenial(options: CreateDenialRequestOptions) {
     try {
@@ -67,7 +67,7 @@ class FHIClient {
     }
   }
 
-  private REMOVE_DATA_URL = this.API_BASE + '/removedata';
+  private REMOVE_DATA_URL = `${this.API_BASE}/removedata`;
 
   async deleteData(options: DeleteDataRequestOptions): Promise<void> {
     try {
