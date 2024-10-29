@@ -33,7 +33,7 @@ export function DeleteDataPage() {
     };
   }, []);
 
-  const isFloating =!!email.trim() || isInputFocused;
+  const isFloating = !!email.trim() || isInputFocused;
 
   const handleDelete = async () => {
     setIsLoading(true);
@@ -76,7 +76,7 @@ export function DeleteDataPage() {
             </Button>
           </div>
           {outcome && (
-            <Text size="lg" color={outcome === DELETION_OUTCOMES.success? 'teal' : 'red'}>
+            <Text size="lg" color={outcome === DELETION_OUTCOMES.success ? 'teal' : 'red'}>
               {outcome}
             </Text>
           )}
