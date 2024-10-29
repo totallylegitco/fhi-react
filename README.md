@@ -19,6 +19,7 @@ You can run all of the npm scripts with `npm run [scriptname]`
 - `dev` – start development server
 - `build` – build production version of the app
 - `preview` – locally preview production build
+- `lint-fix` - try and fix all lint issues
 
 ### Testing scripts
 
