@@ -1,4 +1,4 @@
-import { Button, Center, Loader, Stack, Text } from '@mantine/core';
+import { Button, Loader, Stack, Text } from '@mantine/core';
 import { useState } from 'react';
 import {
   CreateDenialRequestOptions,

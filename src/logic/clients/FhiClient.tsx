@@ -2,6 +2,7 @@
  * API documentation: https://docs.google.com/document/d/10UYWJ3d9BhPBzf_pKj2hv4E8uGHWb3rWGVsddcxKZRc/edit
  */
 
+// Denial flow interfaces
 export interface CreateDenialRequestOptions {
   zip?: string;
   isPii: boolean;
@@ -24,12 +25,18 @@ export interface CreateDenialResponse {
   semi_sekret: string;
 }
 
+// Delete Data interfaces
+interface DeleteDataRequestOptions {
+  email: string;
+}
+
 class FHIClient {
-  private URL = 'https://fighthealthinsurance.com/ziggy/rest/denialcreator';
+  private API_BASE = 'https://fighthealthinsurance.com/ziggy/rest';
+  private CREATE_DENIAL_URL = `${this.API_BASE}/denialcreator`;
 
   async createDenial(options: CreateDenialRequestOptions) {
     try {
-      const response = await fetch(this.URL, {
+      const response = await fetch(this.CREATE_DENIAL_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,8 +62,29 @@ class FHIClient {
 
       return data;
     } catch (error) {
-      console.error(error);
-      throw error;
+      throw new Error(error instanceof Error ? error.message : 'Unknown error occurred');
+    }
+  }
+
+  private REMOVE_DATA_URL = `${this.API_BASE}/removedata`;
+
+  async deleteData(options: DeleteDataRequestOptions): Promise<void> {
+    try {
+      const response = await fetch(this.REMOVE_DATA_URL, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(options),
+      });
+
+      if (!response.ok) {
+        if (response.status === 400) {
+          const errorData = await response.json();
+          throw new Error(`Invalid request: ${JSON.stringify(errorData)}`);
+        }
+        throw new Error('Error deleting data');
+      }
+    } catch (error) {
+      throw new Error(error instanceof Error ? error.message : 'Unknown error occurred');
     }
   }
 }

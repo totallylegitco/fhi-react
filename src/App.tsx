@@ -1,5 +1,5 @@
 import '@mantine/core/styles.css';
-import { createTheme, MantineProvider, MantineThemeOverride } from '@mantine/core';
+import { MantineProvider, MantineThemeOverride } from '@mantine/core';
 import { Router } from './Router';
 
 const theme: MantineThemeOverride = {

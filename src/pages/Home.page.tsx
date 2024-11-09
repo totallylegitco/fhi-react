@@ -1,4 +1,4 @@
-import { Box, Button, Center } from '@mantine/core';
+import { Button, Center } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { TextBlurb } from '../components/TextBlurb/TextBlurb';
 import classes from './styles.module.css';
