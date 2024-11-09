@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { CreateDenialRequestOptions, FHI_CLIENT } from '@/logic/clients/FhiClient';
 
 interface Question {
-  id: string;
+  id?: string;
   text: string;
   type: 'text' | 'textarea' | 'checkbox' | 'none';
-  name: string;
+  name?: string;
   options?: { label: string; value: string }[];
 }
 
 // Array of arrays, where each inner array contains questions to be displayed together
 const questions: Question[][] = [
-  [ {
+  [ { id: "greating",
       text: 'Thanks for choosing to use Fight Health Insurance! We do some things we think is cool-ish to try and improve your data privacy, you ay wish to read the privacy techniques and our privacy policy. You can also just jump right in and press next to get started',
       type: 'none',
   }],
