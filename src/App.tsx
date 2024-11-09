@@ -1,6 +1,6 @@
-import "@mantine/core/styles.css";
-import { MantineProvider, MantineThemeOverride } from "@mantine/core";
-import { Router } from "./Router";
+import '@mantine/core/styles.css';
+import { MantineProvider, MantineThemeOverride } from '@mantine/core';
+import { Router } from './Router';
 
 const theme: MantineThemeOverride = {
   colors: {
