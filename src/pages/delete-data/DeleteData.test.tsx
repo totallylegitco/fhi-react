@@ -1,5 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
+import { MantineProvider } from '@mantine/core'; // Import MantineProvider
 import { DeleteDataPage } from './DeleteData.page';
 import { FHI_CLIENT } from '@/logic/clients/FhiClient';
 
@@ -9,7 +10,11 @@ describe('DeleteDataPage', () => {
   });
 
   it('renders delete data page with title and input', () => {
-    render(<DeleteDataPage />);
+    render(
+      <MantineProvider>
+        <DeleteDataPage />
+      </MantineProvider>
+    );
     expect(screen.getByText('Delete your Data')).toBeInTheDocument();
     expect(screen.getByLabelText('Email')).toBeInTheDocument();
   });
@@ -18,7 +23,11 @@ describe('DeleteDataPage', () => {
     const mockDeleteData = vi.spyOn(FHI_CLIENT, 'deleteData').mockResolvedValue();
     const testEmail = 'test@example.com';
 
-    render(<DeleteDataPage />);
+    render(
+      <MantineProvider>
+        <DeleteDataPage />
+      </MantineProvider>
+    );
 
     const emailInput = screen.getByLabelText('Email');
     const deleteButton = screen.getByText('Delete');
@@ -36,7 +45,11 @@ describe('DeleteDataPage', () => {
     const mockDeleteData = vi.spyOn(FHI_CLIENT, 'deleteData').mockRejectedValue(new Error());
     const testEmail = 'test@example.com';
 
-    render(<DeleteDataPage />);
+    render(
+      <MantineProvider>
+        <DeleteDataPage />
+      </MantineProvider>
+    );
 
     const emailInput = screen.getByLabelText('Email');
     const deleteButton = screen.getByText('Delete');
