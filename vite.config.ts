@@ -9,4 +9,10 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './vitest.setup.mjs',
   },
+  // Add the following section for build optimization (minification and compression)
+  build: {
+    minify: true, // Enable minification
+    compress: true, // Enable compression (uses brotli by default)
+    sourcemap: true, // Optional: Enable source maps for debugging
+  },
 });
