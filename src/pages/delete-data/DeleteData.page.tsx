@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button, Center, TextInput, Stack, Text } from '@mantine/core';
 import { TextBlurb } from '@/components/TextBlurb/TextBlurb';
 import { FHI_CLIENT } from '@/logic/clients/FhiClient';
