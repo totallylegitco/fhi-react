@@ -4,7 +4,7 @@ import { CreateDenialRequestOptions, FHI_CLIENT } from '@/logic/clients/FhiClien
 interface Question {
   id: string;
   text: string;
-  type: 'text' | 'textarea' | 'checkbox';
+  type: 'text' | 'textarea' | 'checkbox' | 'none';
   name: string;
   options?: { label: string; value: string }[];
 }
