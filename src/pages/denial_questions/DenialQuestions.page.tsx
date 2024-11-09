@@ -5,16 +5,20 @@ interface Question {
   id?: string;
   text: string;
   type: 'text' | 'textarea' | 'checkbox' | 'none';
-  name?: string;
+  name: string;
   options?: { label: string; value: string }[];
 }
 
 // Array of arrays, where each inner array contains questions to be displayed together
 const questions: Question[][] = [
-  [ { id: "greating",
+  [
+    {
+      id: 'greeting',
+      name: 'greeting',
       text: 'Thanks for choosing to use Fight Health Insurance! We do some things we think is cool-ish to try and improve your data privacy, you ay wish to read the privacy techniques and our privacy policy. You can also just jump right in and press next to get started',
       type: 'none',
-  }],
+    },
+  ],
   [
     {
       id: '1',
@@ -81,7 +85,17 @@ const questions: Question[][] = [
 
 export function DenialQuestions() {
   const [currentQuestionSetIndex, setCurrentQuestionSetIndex] = useState(0);
-  const [answers, setAnswers] = useState<CreateDenialRequestOptions>({});
+  const [answers, setAnswers] = useState<CreateDenialRequestOptions>({
+    zip: '',
+    isPii: false,
+    isTos: false,
+    isPrivacy: false,
+    denialText: '',
+    healthHistory: '',
+    email: '',
+    isOkToStoreRawEmail: false,
+    isOkToUseExternalModels: false,
+  });
   const [loading, setIsLoading] = useState(false);
   const [denialId, setDenialId] = useState('');
   const [semiSekret, setSemiSekret] = useState('');
@@ -93,9 +107,14 @@ export function DenialQuestions() {
   const currentQuestionSet = questions[currentQuestionSetIndex];
 
   const handleAnswerChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type, checked } = e.target;
-    const answerValue = type === 'checkbox'? checked : value;
-    setAnswers((prevAnswers) => ({...prevAnswers, [name]: answerValue }));
+    const { target } = e;
+    const answerValue =
+      target instanceof HTMLInputElement && target.type === 'checkbox'
+        ? target.checked
+        : target.value;
+    if (target.name) {
+      setAnswers((prevAnswers) => ({ ...prevAnswers, [target.name]: answerValue }));
+    }
   };
 
   const handleNextQuestionSet = () => {
@@ -130,12 +149,12 @@ export function DenialQuestions() {
   if (denialId) {
     return (
       <div>
-	<h2>Denial Created Successfully!</h2>
-	<p>Denial ID: {denialId}</p>
-	<p>Semi Sekret: {semiSekret}</p>
-	<p>Your State: {yourState}</p>
-	<p>Procedure: {procedure}</p>
-	<p>Diagnosis: {diagnosis}</p>
+        <h2>Denial Created Successfully!</h2>
+        <p>Denial ID: {denialId}</p>
+        <p>Semi Sekret: {semiSekret}</p>
+        <p>Your State: {yourState}</p>
+        <p>Procedure: {procedure}</p>
+        <p>Diagnosis: {diagnosis}</p>
       </div>
     );
   }
@@ -144,59 +163,75 @@ export function DenialQuestions() {
     <div>
       <h1>Upload Your Health Insurance Denial</h1>
       <section className="scan-section mt-2">
-	<div className="container">
-	  {error && <p style={{ color: 'red' }}>{error}</p>}
-	  {currentQuestionSet.map((question) => (
-	    <div key={question.id} className="form-group">
-	      <label htmlFor={question.name} className="form-label">
-		{question.text}
-	      </label>
-	      <br />
-	      {question.type === 'textarea'? (
-		<textarea
-		  name={question.name}
-		  id={question.name}
-		  value={answers[question.name] || ''}
-		  onChange={handleAnswerChange}
-		  style={{ width: '100%' }}
-		  rows={20}
-		  className="form-control"
-		/>
-	      ) : question.type === 'none'? (
-		  <div></div>
-	      ) : question.type === 'checkbox'? (
-		question.options?.map((option) => (
-		  <div key={option.value}>
-		    <input
-		      type="checkbox"
-		      id={question.name}
-		      name={question.name}
-		      value={option.value}
-		      checked={answers[question.name] === option.value}
-		      onChange={handleAnswerChange}
-		      className="form-check-input"
-		    />
-		    <label htmlFor={question.name} className="form-check-label">
-		      {option.label}
-		    </label>
-		  </div>
-		))
-	      ) : (
-		<input
-		  type="text"
-		  id={question.name}
-		  name={question.name}
-		  value={answers[question.name] || ''}
-		  onChange={handleAnswerChange}
-		  className="form-control"
-		/>
-	      )}
-	    </div>
-	  ))}
-	  <button type="button" className="btn btn-green" onClick={handleNextQuestionSet}>
-	    {currentQuestionSetIndex < questions.length - 1? 'Next' : 'Submit'}
-	  </button>
-	</div>
+        <div className="container">
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {currentQuestionSet.map((question) => (
+            <div key={question.id} className="form-group">
+              <label>{question.text}</label>
+              <br />
+              {question.name && (
+                <>
+                  {question.type === 'textarea' ? (
+                    <textarea
+                      name={question.name}
+                      id={question.name}
+                      value={String(
+                        question.name in answers
+                          ? answers[question.name as keyof CreateDenialRequestOptions]
+                          : ''
+                      )}
+                      onChange={handleAnswerChange}
+                      style={{ width: '100%' }}
+                      rows={20}
+                      className="form-control"
+                    />
+                  ) : question.type === 'checkbox' ? (
+                    question.options?.map((option) => (
+                      <div key={option.value}>
+                        <input
+                          type="checkbox"
+                          id={question.name}
+                          name={question.name}
+                          value={option.value}
+                          checked={
+                            (question.name in answers
+                              ? answers[question.name as keyof CreateDenialRequestOptions]
+                              : '') === option.value
+                          }
+                          onChange={handleAnswerChange}
+                          className="form-check-input"
+                        />
+                        <label htmlFor={question.name} className="form-check-label">
+                          {option.label}
+                        </label>
+                      </div>
+                    ))
+                  ) : (
+                    <input
+                      type="text"
+                      id={question.name}
+                      name={question.name}
+                      value={String(
+                        question.name in answers
+                          ? answers[question.name as keyof CreateDenialRequestOptions]
+                          : ''
+                      )}
+                      onChange={handleAnswerChange}
+                      className="form-control"
+                    />
+                  )}
+                </>
+              )}
+              {!question.name && (
+                // Optional: Render something for non-interactive questions
+                <div></div>
+              )}
+            </div>
+          ))}
+          <button type="button" className="btn btn-green" onClick={handleNextQuestionSet}>
+            {currentQuestionSetIndex < questions.length - 1 ? 'Next' : 'Submit'}
+          </button>
+        </div>
       </section>
     </div>
   );
