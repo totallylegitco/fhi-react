@@ -1,5 +1,5 @@
-import { Title, Text, Anchor, Box, Stack } from '@mantine/core';
-import classes from './styles.module.css';
+import { Title, Text } from "@mantine/core";
+import classes from "./styles.module.css";
 
 interface TextBlurbProps {
   title: string;

@@ -62,8 +62,7 @@ class FHIClient {
 
       return data;
     } catch (error) {
-      console.error(error);
-      throw error;
+      throw new Error(error instanceof Error ? error.message : 'Unknown error occurred');
     }
   }
 
@@ -85,8 +84,7 @@ class FHIClient {
         throw new Error('Error deleting data');
       }
     } catch (error) {
-      console.error('Error deleting data:', error);
-      throw error;
+      throw new Error(error instanceof Error ? error.message : 'Unknown error occurred');
     }
   }
 }
