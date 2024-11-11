@@ -21,7 +21,7 @@ export function HomePage() {
             size="xl"
             className={classes.primaryColor}
             component={Link}
-            to="/appeal"
+            to="/denial_questions"
           >
             Get Started
           </Button>
@@ -44,7 +44,7 @@ export function HomePage() {
             size="xl"
             className={classes.primaryColor}
             component={Link}
-            to="/appeal"
+            to="/denial_questions"
           >
             Get Started
           </Button>
