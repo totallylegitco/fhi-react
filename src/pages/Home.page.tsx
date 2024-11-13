@@ -5,10 +5,14 @@ import classes from './styles.module.css';
 import { ScrollDownTag } from '@/components/ScrollDownTag/ScrollDownTag';
 
 const WELCOME_TITLE = 'Fight Health Insurance';
-const WELCOME_TEXT = `We'll help you to write an appeal to fight your health insurance denial. While an appeal is
-        not always the first step in the health insurance appeal process we'll guide you through the
-        options to fight back against health insurance denials. Almost all health plans are required
-        to offer internal and external appeals and while they often make it confusing we can help.`;
+const WELCOME_TEXT = `We'll help with writing your appeal to fight the health insurance denial. While an appeal is
+        not always the first step in the appeal process, we'll guide you through
+        options to fight back against health insurance denials. Most health plans are required
+        to offer internal and external appeals and while they often make it confusing, we can help.`;
+const UPLOAD_TEXT = `Navigating the insurance appeal process methodically is essential. The first step involves
+        scanning your denial letter. This can be done through optical character recognition (OCR) either on your device/phone (recommended for increased privacy)
+        or on our servers (more accurate). OCR makes the text understandable to machines, allowing our generative
+        AI model able to produce potential appeals for you to choose from.`;
 
 export function HomePage() {
   return (
@@ -29,7 +33,7 @@ export function HomePage() {
         <ScrollDownTag label="How it works" />
       </div>
       <div className={classes.snapSection}>
-        <TextBlurb title="1. Upload your denial" text={WELCOME_TEXT} />
+        <TextBlurb title="1. Upload your denial" text={UPLOAD_TEXT} />
         <ScrollDownTag label="Next step" />
       </div>
       <div className={classes.snapSection}>
