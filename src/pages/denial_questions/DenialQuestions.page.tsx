@@ -176,7 +176,7 @@ export function DenialQuestions() {
       {currentQuestionSetIndex === 0 ? (
         <TextBlurb title="Upload your Denial" text={questions[0][0].text} />
       ) : (
-        <TextBlurb title="Upload your Denial" text={''} />
+        <TextBlurb title="Upload your Denial" text="" />
       )}
       <section className="scan-section mt-2">
         <div className="container">
