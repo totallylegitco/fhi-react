@@ -3,7 +3,7 @@ import classes from './styles.module.css';
 
 interface TextBlurbProps {
   title: string;
-  text: string;
+  text: string[];
 }
 
 export function TextBlurb({ title, text }: TextBlurbProps) {
