@@ -6,11 +6,11 @@ import { Header } from './components/Header/Header';
 import classes from './pages/Layout.module.css';
 import { AboutUsPage } from './pages/about-us/AboutUs.page';
 import { DeleteDataPage } from './pages/delete-data/DeleteData.page';
-
+import { ProfessionalPage } from './pages/professional/Professional.page';
 const Layout = () => (
   <>
+    {/* <header>Welcome to Fight Health Insurance</header> */}
     <Header />
-
     <div className={classes.homePage}>
       <Box className={classes.contentBox}>
         <main style={{ position: 'relative' }}>
@@ -43,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: 'delete-data',
         element: <DeleteDataPage />,
+      },
+      {
+        path: 'pro-version',
+        element: <ProfessionalPage />,
       },
     ],
   },
