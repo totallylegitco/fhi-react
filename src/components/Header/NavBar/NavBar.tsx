@@ -11,6 +11,7 @@ const navItems: AnchorItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Delete Data', href: '/delete-data' },
+  { label: 'Professional', href: '/pro-version' },
   { label: 'Appeal', href: '/appeal' },
 ];
 
