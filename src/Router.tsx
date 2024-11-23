@@ -7,6 +7,7 @@ import classes from './pages/Layout.module.css';
 import { AboutUsPage } from './pages/about-us/AboutUs.page';
 import { DeleteDataPage } from './pages/delete-data/DeleteData.page';
 import { ProfessionalPage } from './pages/professional/Professional.page';
+
 const Layout = () => (
   <>
     {/* <header>Welcome to Fight Health Insurance</header> */}
