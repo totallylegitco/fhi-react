@@ -1,9 +1,9 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { Box } from '@mantine/core';
-import { HomePage } from './pages/Home.page';
-import { DenialQuestions } from './pages/denial_questions/DenialQuestions.page';
 import { Header } from './components/Header/Header';
 import classes from './pages/Layout.module.css';
+import { HomePage } from './pages/homepage/Homepage.page';
+import { DenialQuestions } from './pages/denial_questions/DenialQuestions.page';
 import { AboutUsPage } from './pages/about-us/AboutUs.page';
 import { DeleteDataPage } from './pages/delete-data/DeleteData.page';
 
@@ -30,6 +30,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <HomePage />,
+      },
+      {
+        path: 'homepage',
         element: <HomePage />,
       },
       {
