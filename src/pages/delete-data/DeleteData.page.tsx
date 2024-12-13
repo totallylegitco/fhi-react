@@ -6,8 +6,8 @@ import classes from '@/pages/styles.module.css';
 
 const DELETE_TEXT = 'To help us delete your data, please provide the email address you used.';
 const DELETION_OUTCOMES = {
-  success: 'Ok, data removed',
-  failure: 'Failure, try again later',
+  success: 'Any data associated with your email has been removed.',
+  failure: 'Error: try again later',
 };
 
 export function DeleteDataPage() {
@@ -65,13 +65,7 @@ export function DeleteDataPage() {
             />
           </div>
           <div className="delete-button">
-            <Button
-              radius={0}
-              size="xl"
-              className={classes.primaryColor}
-              onClick={handleDelete}
-              loading={isLoading}
-            >
+            <Button onClick={handleDelete} loading={isLoading}>
               Delete
             </Button>
           </div>
