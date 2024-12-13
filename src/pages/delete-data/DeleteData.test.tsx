@@ -37,7 +37,9 @@ describe('DeleteDataPage', () => {
 
     await waitFor(() => {
       expect(mockDeleteData).toHaveBeenCalledWith({ email: testEmail });
-      expect(screen.getByText('Ok, data removed')).toBeInTheDocument();
+      expect(
+        screen.getByText('Any data associated with your email has been removed.')
+      ).toBeInTheDocument();
     });
   });
 
@@ -59,7 +61,7 @@ describe('DeleteDataPage', () => {
 
     await waitFor(() => {
       expect(mockDeleteData).toHaveBeenCalledWith({ email: testEmail });
-      expect(screen.getByText('Failure, try again later')).toBeInTheDocument();
+      expect(screen.getByText('Error: try again later')).toBeInTheDocument();
     });
   });
 });

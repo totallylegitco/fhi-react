@@ -11,13 +11,7 @@ export function HomePage() {
       <div className={classes.snapSection}>
         <TextBlurb title={WELCOME_TITLE} text={WELCOME_TEXT} />
         <Center mt={80}>
-          <Button
-            radius="md"
-            size="xl"
-            className={classes.primaryColor}
-            component={Link}
-            to="/denial_questions"
-          >
+          <Button component={Link} to="/denial-questions">
             Get Started
           </Button>
         </Center>
@@ -30,13 +24,7 @@ export function HomePage() {
       <div className={classes.snapSection}>
         <TextBlurb title="2. Get your appeal" text={APPEAL_TEXT} />
         <Center mt={80}>
-          <Button
-            radius="md"
-            size="xl"
-            className={classes.primaryColor}
-            component={Link}
-            to="/denial_questions"
-          >
+          <Button component={Link} to="/denial-questions">
             Get Started
           </Button>
         </Center>

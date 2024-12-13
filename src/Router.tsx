@@ -1,11 +1,12 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import { Box } from '@mantine/core';
+import { Box, MantineProvider } from '@mantine/core';
 import { Header } from './components/Header/Header';
 import classes from './pages/Layout.module.css';
 import { HomePage } from './pages/homepage/Homepage.page';
-import { DenialQuestions } from './pages/denial_questions/DenialQuestions.page';
+import { DenialQuestions } from './pages/denial-questions/DenialQuestions.page';
 import { AboutUsPage } from './pages/about-us/AboutUs.page';
 import { DeleteDataPage } from './pages/delete-data/DeleteData.page';
+import { theme } from './components/Theme/Theme';
 
 const Layout = () => (
   <>
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'denial_questions',
+        path: 'denial-questions',
         element: <DenialQuestions />,
       },
       {
@@ -53,5 +54,9 @@ const router = createBrowserRouter([
 ]);
 
 export function Router() {
-  return <RouterProvider router={router} />;
+  return (
+    <MantineProvider theme={theme}>
+      <RouterProvider router={router} />
+    </MantineProvider>
+  );
 }
